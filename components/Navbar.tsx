@@ -4,7 +4,7 @@ import { NAV_LINKS } from "@/constants";
 import { Button } from "@/components/ui/button"
 const Navbar = () => {
   return (
-    <nav className="flexBetween max-container padding-container py-5 relative z-30">
+    <nav className="flexBetween max-container padding-container py-5 relative z-30 shadow-sm">
       <Link href="/">
         <Image src="/logo.svg" alt="logo" width={180} height={100}/>
       </Link>

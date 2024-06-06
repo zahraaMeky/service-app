@@ -11,9 +11,14 @@
 }
 
 body {
-  font-family: Inter;
-}
+  font-family: var(--font-poppins);
 
+}
+@layer base {
+  html {
+      @apply bg-gray-20;
+  }
+}
 @layer utilities {
   .btn_white { 
     @apply  border-white bg-white px-8 py-3 text-green-50

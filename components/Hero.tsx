@@ -4,7 +4,7 @@ import { Search } from "lucide-react"
 import Image from 'next/image'
 const Hero = () => {
     return (
-      <section className="flexBetween flex-col w-full h-auto gap-20 py-10  md:gap-28 lg:py-20 lg:flex-row padding-container">
+      <section className="flexBetween flex-col w-full h-auto gap-20 py-5  md:gap-28 lg:py-10 lg:flex-row padding-container">
         <div className="flex flex-col flexCenter gap-5 md:w-[50%] w-full">
             <div className="flex flex-col">
                 <h2 className="text-[40px] font-bold text-center text-purple-700">Find Home 

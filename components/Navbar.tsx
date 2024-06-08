@@ -4,7 +4,16 @@ import Link from "next/link"
 import Image from 'next/image';
 import { NAV_LINKS } from "@/constants";
 import { Button } from "@/components/ui/button"
-import { signIn, useSession } from "next-auth/react"
+import { signIn, signOut, useSession } from "next-auth/react"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 const Navbar = () => {
   const {data} = useSession()
   useEffect(()=>{
@@ -28,12 +37,24 @@ const Navbar = () => {
       </ul>
       <div className="flexCenter">
       {data?.user?
-        <Image src={data?.user?.image}
-          alt='user'
-          width={40}
-          height={40}
-          className='rounded-full'
-          />:
+        <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Image src={data?.user?.image}
+            alt='user'
+            width={40}
+            height={40}
+            className='rounded-full'
+            />
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuLabel>My Account</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>My Booking</DropdownMenuItem>
+          <DropdownMenuItem onClick={()=>signOut()} className="cursor-pointer">Log Out</DropdownMenuItem>
+        </DropdownMenuContent>
+        </DropdownMenu>
+    
+        :
       <Button className="bg-purple-400 text-white" 
        onClick={() => signIn("descope")}>
         Login / Sign Up

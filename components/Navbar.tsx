@@ -1,8 +1,14 @@
+'use client'
+import { useEffect } from "react";
 import Link from "next/link"
 import Image from 'next/image';
 import { NAV_LINKS } from "@/constants";
 import { Button } from "@/components/ui/button"
+import { signIn, useSession } from "next-auth/react"
 const Navbar = () => {
+  const {data} = useSession()
+  useEffect(()=>{
+  },[data])
   return (
     <nav className="flexBetween max-container padding-container py-5 relative z-30 shadow-sm">
       <Link href="/">
@@ -21,7 +27,18 @@ const Navbar = () => {
             ))}
       </ul>
       <div className="flexCenter">
-      <Button className="bg-purple-400 text-white">Get Started</Button>
+      {data?.user?
+        <Image src={data?.user?.image}
+          alt='user'
+          width={40}
+          height={40}
+          className='rounded-full'
+          />:
+      <Button className="bg-purple-400 text-white" 
+       onClick={() => signIn("descope")}>
+        Login / Sign Up
+      </Button>
+      }
       </div>
     </nav>
   )

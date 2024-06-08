@@ -10,12 +10,12 @@
   box-sizing: border-box;
 }
 
-
+/* 
 @layer base {
   html {
       @apply bg-gray-20;
   }
-}
+} */
 @layer utilities {
   .btn_white { 
     @apply  border-white bg-white px-8 py-3 text-green-50
@@ -91,7 +91,7 @@
   }
 
   .medium-14 {
-    @apply text-[14px] font-[600];
+    @apply text-[22px] font-[600];
   }
 
   .bold-88 {

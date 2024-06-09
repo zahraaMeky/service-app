@@ -52,7 +52,33 @@ const getAllBusinessList = async () => {
     }
 };
 
+const getBusinessByCategory=async(category)=>{
+    const BusinessByCategory = gql`
+      query FilterByCategory {
+        businessLists(where: {category: {name:"`+category+`"}}) {
+            about
+            address
+            contactPerson
+            category {
+            name
+            }
+            image {
+            url
+            }
+            email
+        }
+        }
+      `
+    try {
+        const BusinessByCategoryresult = await request(MASTER_URL,BusinessByCategory);
+        return BusinessByCategoryresult;
+    } catch (error) {
+        console.error("Error fetching business lists:", error);
+        throw error; // Re-throw the error to propagate it to the caller
+    }
+};
 export default {
     getCategory,
-    getAllBusinessList
+    getAllBusinessList,
+    getBusinessByCategory
 };

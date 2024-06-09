@@ -1,23 +1,8 @@
-"use client"
-import { useEffect, useState } from "react";
-import GlobalApi from "../app/api/GlobalApi";
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from "./ui/button";
-const BusinessList = ({title}) => {
-    const [businessList,setBusinessList]=useState([]);
-    useEffect(()=>{
-        getAllBusinessList();
-      },[])
-    
-  /**
-   * Used to get All Business List
-   */
-  const getAllBusinessList=()=>{
-    GlobalApi.getAllBusinessList().then(resp=>{
-      setBusinessList(resp.businessLists)
-    })
-  }
+const BusinessList = ({businessList,title}) => {
+   
   return (
     <section className="mt-5 padding-container">
       <h2 className="medium-14 text-purple-700">{title}</h2>

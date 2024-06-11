@@ -55,7 +55,8 @@ const getAllBusinessList = async () => {
 const getBusinessByCategory=async(category)=>{
     const BusinessByCategory = gql`
       query FilterByCategory {
-        businessLists(where: {category: {name:"`+category+`"}}) {
+        businessLists(where: {category: 
+            {name: "`+category+`"}}) {
             about
             address
             contactPerson
@@ -66,8 +67,9 @@ const getBusinessByCategory=async(category)=>{
             url
             }
             email
+            id
         }
-        }
+    }
       `
     try {
         const BusinessByCategoryresult = await request(MASTER_URL,BusinessByCategory);
@@ -77,8 +79,37 @@ const getBusinessByCategory=async(category)=>{
         throw error; // Re-throw the error to propagate it to the caller
     }
 };
+const getBusinessByID=async(id)=>{
+    const BusinessByid = gql`
+        query GetBusinessById {
+        businessList(where: {id: "`+id+`"}) {
+        about
+        address
+        contactPerson
+        category {
+        name
+        }
+        email
+        id
+        image {
+        url
+        }
+        name
+    }
+    }
+    
+      `
+    try {
+        const BusinessByidresult = await request(MASTER_URL,BusinessByid);
+        return BusinessByidresult;
+    } catch (error) {
+        console.error("Error fetching business lists:", error);
+        throw error; // Re-throw the error to propagate it to the caller
+    }
+};
 export default {
     getCategory,
     getAllBusinessList,
-    getBusinessByCategory
+    getBusinessByCategory,
+    getBusinessByID
 };

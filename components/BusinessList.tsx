@@ -30,7 +30,7 @@ const BusinessList = ({businessList,title}) => {
             </Link>
         )):
         // loading effect if until data come from server
-            [1,2,3,4,5,7,8].map((item,index)=>(
+            [1,2,3,4,5,7,8,9].map((item,index)=>(
                 <div key={index} className='h-[300px]
                 w-full bg-purple-200 animate-pulse
                 rounded-lg'>

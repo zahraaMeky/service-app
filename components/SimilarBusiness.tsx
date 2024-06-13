@@ -3,8 +3,18 @@ import { useEffect, useState } from "react";
 import { Button } from './ui/button'
 import { Notebook } from 'lucide-react'
 import GlobalApi from '@/app/api/GlobalApi';
+import BookingSection from '@/components/BookingSection';
 import Image from 'next/image'
 import Link from 'next/link'
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+
 const SimilarBusiness = ({ business }) => {
   const [businessList,setBusinessList]=useState([]);
   useEffect(()=>{
@@ -18,10 +28,12 @@ const SimilarBusiness = ({ business }) => {
   }
   return business?.name&&(
     <div className='md:pl-10'>
-      <Button className='bg-purple-400 text-white flex gap-2 w-full'>
-        <Notebook/>        
-        Book Appointment  
-      </Button>
+      <BookingSection  business={business}>
+        <Button className='bg-purple-400 text-white flex gap-2 w-full'>
+          <Notebook/>        
+          Book Appointment  
+        </Button>
+      </BookingSection>
       <div className="hidden md:block">
         <h2 className="font-bold text-lg mt-3 mb-3">Similar Business</h2>
         <div>

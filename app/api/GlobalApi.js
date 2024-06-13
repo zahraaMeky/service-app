@@ -107,9 +107,55 @@ const getBusinessByID=async(id)=>{
         throw error; // Re-throw the error to propagate it to the caller
     }
 };
+
+
+const CreateNewBooking=async(businessId,date,time,userEmail,userName)=>{
+    const createBooking = gql`
+      mutation createBooking {
+        createBooking(
+            data: {bookingStatus: Booked, 
+            businessList: {connect: {id: "`+businessId+`"}},
+            date: "`+date+`", time: "`+time+`", 
+            userEmail: "`+userEmail+`",
+            userName: "`+userName+`"}
+        ) {
+            id
+        }
+        publishManyBookings(to: PUBLISHED) {
+            count
+        }
+        }
+      `
+    try {
+        const createBookingresult = await request(MASTER_URL,createBooking);
+        return createBookingresult;
+    } catch (error) {
+        console.error("Error fetching business lists:", error);
+        throw error; // Re-throw the error to propagate it to the caller
+    }
+};
+const BusinessBookedSlot=async(businessId,date,)=>{
+    const BookedSlot = gql`
+        query BusinessBookedSlot {
+        bookings(where: {businessList: {id: "`+businessId+`"}, date:"`+date+`"}) {
+            date
+            time
+        }
+        }
+      `
+    try {
+        const BookedSlotresult = await request(MASTER_URL,BookedSlot);
+        return BookedSlotresult;
+    } catch (error) {
+        console.error("Error fetching business lists:", error);
+        throw error; // Re-throw the error to propagate it to the caller
+    }
+};
 export default {
     getCategory,
     getAllBusinessList,
     getBusinessByCategory,
-    getBusinessByID
+    getBusinessByID,
+    CreateNewBooking,
+    BusinessBookedSlot
 };

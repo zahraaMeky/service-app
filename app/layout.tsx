@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Outfit } from 'next/font/google'
 import NextAuthSessionProvider from "./provider";
- 
+import { Toaster } from "@/components/ui/sonner"
 // If loading a variable font, you don't need to specify the font weight
 const inter = Outfit({ subsets: ['latin'] })
 
@@ -24,6 +24,7 @@ export default function RootLayout({
     <body>
     <NextAuthSessionProvider>
       <Navbar/>
+      <Toaster />
       <main className="relative overflow-hidden">
         {children}
       </main>

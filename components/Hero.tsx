@@ -20,7 +20,7 @@ const Hero = () => {
                 </Button>
             </div>
         </div>
-        <div className="md:w-[50%] w-full">
+        <div className="md:w-[50%] w-full flexCenter">
             <Image src="/hero.png" width={500} height={500} alt="hero"/>
         </div>
 

@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useState } from "react";
+import moment from 'moment'
 import {
     Sheet,
     SheetClose,
@@ -57,7 +58,7 @@ const BookingSection = ({children,business}) => {
     const saveBooking = () => {
         GlobalApi.CreateNewBooking(
             business.id,
-            date,
+            moment(date).format('DD-MMM-yyyy') ,
             selectedTime,
             data.user.email,
             data.user.name
@@ -81,7 +82,7 @@ const BookingSection = ({children,business}) => {
     
 
     const BusinessBookedSlot=()=>{
-        GlobalApi.BusinessBookedSlot(business.id,date).then(resp=>{
+        GlobalApi.BusinessBookedSlot(business.id,moment(date).format('DD-MMM-yyyy')).then(resp=>{
         setBookedSlot(resp?.bookings)
     })
     }

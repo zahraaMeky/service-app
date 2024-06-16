@@ -134,6 +134,7 @@ const CreateNewBooking=async(businessId,date,time,userEmail,userName)=>{
         throw error; // Re-throw the error to propagate it to the caller
     }
 };
+
 const BusinessBookedSlot=async(businessId,date,)=>{
     const BookedSlot = gql`
         query BusinessBookedSlot {
@@ -151,11 +152,40 @@ const BusinessBookedSlot=async(businessId,date,)=>{
         throw error; // Re-throw the error to propagate it to the caller
     }
 };
+
+const GetUserBookingHistory=async(userEmail)=>{
+    const BookingHistory = gql`
+        query GetUserBookingHistory {
+            bookings(where: {userEmail: "`+userEmail+`"}, orderBy: publishedAt_DESC) {
+                businessList {
+                name
+                image {
+                    url
+                }
+                contactPerson
+                address
+                }
+                date
+                time
+            }
+            }
+
+      `
+    try {
+        const BookingHistoryresult = await request(MASTER_URL,BookingHistory);
+        return BookingHistoryresult;
+    } catch (error) {
+        console.error("Error fetching business lists:", error);
+        throw error; // Re-throw the error to propagate it to the caller
+    }
+};
 export default {
     getCategory,
     getAllBusinessList,
     getBusinessByCategory,
     getBusinessByID,
     CreateNewBooking,
-    BusinessBookedSlot
+    BusinessBookedSlot,
+    GetUserBookingHistory
+
 };

@@ -43,13 +43,15 @@ const Navbar = () => {
             alt='user'
             width={40}
             height={40}
-            className='rounded-full'
+            className='rounded-full cursor-pointer'
             />
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>My Booking</DropdownMenuItem>
+          <DropdownMenuItem>
+            <Link href="/UserBooking">My Booking</Link>
+          </DropdownMenuItem>
           <DropdownMenuItem onClick={()=>signOut()} className="cursor-pointer">Log Out</DropdownMenuItem>
         </DropdownMenuContent>
         </DropdownMenu>

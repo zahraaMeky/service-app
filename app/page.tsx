@@ -5,6 +5,8 @@ import BusinessList from "@/components/BusinessList";
 import CategoryList from "@/components/CategoryList";
 import Hero from "@/components/Hero";
 import Image from "next/image";
+import { CarouselDefault } from "@/components/CarouselDefault";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [businessList,setBusinessList]=useState([]);
@@ -26,6 +28,8 @@ const getAllBusinessList=()=>{
   <CategoryList/>
   <BusinessList businessList={businessList}
       title={'Popular Business'} />
+  <CarouselDefault/>
+  <Footer/>
   </>
   );
 }

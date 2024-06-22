@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 const BusinessList = ({businessList,title}) => {
    
   return (
-    <section id="services"className="mt-5 padding-container">
+    <section id="services"className="my-5 padding-container">
       <h2 className="medium-14 text-purple-700">{title}</h2>
       <div className='grid grid-cols-2 md:grid-cols-3
         lg:grid-cols-4 gap-6 mt-5'>

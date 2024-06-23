@@ -3,7 +3,7 @@
 import GlobalApi from '@/app/api/GlobalApi';
 import BusinessList from '@/components/BusinessList';
 import React, { useEffect, useState } from 'react'
-const page = ({params}) => {
+const page = ({ params }: any) => {
     const [businessList,setBusinessList]=useState([]);
     useEffect(()=>{
         console.log(params);

@@ -6,7 +6,7 @@ import BusinessInfo from "@/components/BusinessInfo";
 import BusinessDescription from "@/components/BusinessDescription";
 import SimilarBusiness from "@/components/SimilarBusiness";
 
-const BusinessDetail = ({params}) => {
+const BusinessDetail = ({ params }: any) => {
     const {data,status}=useSession()
     const [businessDetails,setBusinessDetails]=useState([]);
 

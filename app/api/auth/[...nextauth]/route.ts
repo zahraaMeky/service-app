@@ -13,7 +13,6 @@ import { NextAuthOptions } from "next-auth"
         idToken: true,
         clientId: "P2hakMnuvlRb7FqaGxVbZrRHOs6w",
         clientSecret: "<Descope Access Key>",
-        // clientSecret: "K2haprNQg7sX7HKltlWeI2fz34u9qln3vSGagHRx6oy3QEj6xGOPhUOUGikXP71zzuM6NXc",
         // https://app.descope.com/accesskeys
         checks: ["pkce", "state"],
         profile(profile) {

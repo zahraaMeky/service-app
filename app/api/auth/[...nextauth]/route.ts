@@ -30,7 +30,7 @@ import { NextAuthOptions } from "next-auth"
                 return {
                     ...token,
                     access_token: account.access_token,
-                    expires_at: Math.floor(Date.now() / 1000 + account.expires_in),
+                    expires_at:  Math.floor(Date.now() / 1000 + (account.expires_in as number)),
                     refresh_token: account.refresh_token,
                     profile: {
                       name: profile?.name,
@@ -45,7 +45,7 @@ import { NextAuthOptions } from "next-auth"
                     const response = await fetch("https://api.descope.com/oauth2/v1/token", {
                         headers: {"Content-Type": "application/x-www-form-urlencoded"},
                         body: new URLSearchParams({
-                            client_id: "P2hakMnuvlRb7FqaGxVbZrRHOs6w",
+                            client_id: process.env.NEXT_PUBLIC_CLIENT_ID,
                             client_secret: "<Descope Access Key>",
                             grant_type: "refresh_token",
                             refresh_token: token.refresh_token,

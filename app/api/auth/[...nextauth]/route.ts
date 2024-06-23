@@ -11,7 +11,7 @@ import { NextAuthOptions } from "next-auth"
         wellKnown: `https://api.descope.com/P2hakMnuvlRb7FqaGxVbZrRHOs6w/.well-known/openid-configuration`,
         authorization: { params: { scope: "openid email profile" } },
         idToken: true,
-        clientId: "P2hakMnuvlRb7FqaGxVbZrRHOs6w",
+        clientId:process.env.NEXT_PUBLIC_CLIENT_ID,
         clientSecret: "<Descope Access Key>",
         // https://app.descope.com/accesskeys
         checks: ["pkce", "state"],

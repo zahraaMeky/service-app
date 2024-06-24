@@ -1,7 +1,17 @@
 import React from 'react'
 import Image from 'next/image'
 
-const BusinessDescription = ({ business }) => {
+interface Business {
+  name: string;
+  about?: string;
+  image?: { url: string }[];
+}
+
+interface BusinessDescriptionProps {
+  business: Business;
+}
+
+const BusinessDescription: React.FC<BusinessDescriptionProps> = ({ business }) => {
   if (!business?.name) return null;
   
   return (

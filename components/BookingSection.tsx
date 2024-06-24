@@ -1,5 +1,4 @@
-import { ReactNode } from "react";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import moment from 'moment';
 import {
     Sheet,
@@ -28,7 +27,7 @@ type BookingSectionProps = {
 };
 
 const BookingSection = ({ children, business }: BookingSectionProps) => {
-    const [date, setDate] = useState(new Date());
+    const [date, setDate] = useState<Date>(new Date());
     const [timeSlot, setTimeSlot] = useState<{ time: string }[]>([]);
     const [selectedTime, setSelectedTime] = useState<string | undefined>();
     const [bookedSlot, setBookedSlot] = useState<{ time: string }[]>([]);
@@ -87,6 +86,12 @@ const BookingSection = ({ children, business }: BookingSectionProps) => {
         });
     };
 
+    const handleDateSelect = (day: Date | undefined) => {
+        if (day) {
+            setDate(day);
+        }
+    };
+
     return (
         <div>
             <Sheet>
@@ -101,7 +106,7 @@ const BookingSection = ({ children, business }: BookingSectionProps) => {
                                 <Calendar
                                     mode="single"
                                     selected={date}
-                                    onSelect={setDate}
+                                    onSelect={handleDateSelect}
                                     className="rounded-md border"
                                 />
                             </div>

@@ -1,5 +1,10 @@
 import NextAuth from "next-auth/next";
-import { NextAuthOptions, Account } from "next-auth";
+import { NextAuthOptions, Profile as NextAuthProfile, Account } from "next-auth";
+
+// Extend the Profile type to include 'picture'
+interface Profile extends NextAuthProfile {
+  picture?: string;
+}
 
 const authOptions: NextAuthOptions = {
   providers: [
@@ -14,11 +19,12 @@ const authOptions: NextAuthOptions = {
       clientSecret: "<Descope Access Key>",
       checks: ["pkce", "state"],
       profile(profile) {
+        const typedProfile = profile as Profile; // Type assertion for profile
         return {
-          id: profile.sub,
-          name: profile.name,
-          email: profile.email,
-          image: profile.picture,
+          id: typedProfile.sub,
+          name: typedProfile.name,
+          email: typedProfile.email,
+          image: typedProfile.picture,
         };
       },
     },
@@ -27,15 +33,16 @@ const authOptions: NextAuthOptions = {
     async jwt({ token, account, profile }) {
       if (account) {
         const typedAccount = account as Account & { expires_in: number }; // Type assertion for `expires_in`
+        const typedProfile = profile as Profile; // Type assertion for profile
         return {
           ...token,
           access_token: typedAccount.access_token,
           expires_at: Math.floor(Date.now() / 1000 + typedAccount.expires_in),
           refresh_token: typedAccount.refresh_token,
           profile: {
-            name: profile?.name,
-            email: profile?.email,
-            image: profile?.picture,
+            name: typedProfile?.name,
+            email: typedProfile?.email,
+            image: typedProfile?.picture,
           },
         };
       } else if (Date.now() < token.expires_at * 1000) {

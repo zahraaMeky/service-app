@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from "react";
-import { signIn, useSession } from "next-auth/react"
+import { signIn, useSession } from "next-auth/react";
 import GlobalApi from "@/app/api/GlobalApi";
 import BusinessInfo from "@/components/BusinessInfo";
 import BusinessDescription from "@/components/BusinessDescription";
@@ -13,18 +13,22 @@ interface BusinessDetailProps {
 }
 
 interface Business {
-    // Define the structure of your business details here
     id: string;
     name: string;
     description: string;
+    image: { url: string }[]; // Assuming this structure based on usage
+    address: string;
+    email: string;
+    contactPerson: string;
+    category: {
+        name: string; // Adjust as per the actual structure from API
+    };
     // Add other fields as necessary
 }
 
 const BusinessDetail: React.FC<BusinessDetailProps> = ({ params }) => {
     const { data, status } = useSession();
     const [businessDetails, setBusinessDetails] = useState<Business | null>(null);
-
-    console.log(params.businessId);
 
     const checkUserAuthenticated = () => {
         if (status === "loading") {
@@ -41,14 +45,14 @@ const BusinessDetail: React.FC<BusinessDetailProps> = ({ params }) => {
 
     useEffect(() => {
         if (params) {
-            BusinessDetailsByID();
+            fetchBusinessDetails(params.businessId);
         }
     }, [params]);
 
-    const BusinessDetailsByID = async () => {
+    const fetchBusinessDetails = async (businessId: string) => {
         try {
-            const resp = await GlobalApi.getBusinessByID(params.businessId);
-            setBusinessDetails(resp.businessList);
+            const resp = await GlobalApi.getBusinessByID(businessId);
+            setBusinessDetails(resp.businessList); // Assuming response structure
         } catch (error) {
             console.error("Error fetching business details:", error);
         }

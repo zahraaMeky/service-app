@@ -16,10 +16,10 @@ interface Business {
     id: string;
     name: string;
     description: string;
-    image: string; // Add missing field
-    address: string; // Add missing field
-    email: string; // Add missing field
-    contactPerson: string; // Add missing field
+    image: { url: string }[]; // Adjusted type
+    address: string;
+    email: string;
+    contactPerson: string;
     // Add other fields as necessary
 }
 

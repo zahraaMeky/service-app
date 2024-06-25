@@ -43,8 +43,8 @@ import NextAuth from "next-auth/next";
                     const response = await fetch("https://api.descope.com/oauth2/v1/token", {
                         headers: {"Content-Type": "application/x-www-form-urlencoded"},
                         body: new URLSearchParams({
-                            client_id: "P2hakMnuvlRb7FqaGxVbZrRHOs6w",
-                            client_secret: "<Descope Access Key>",
+                            client_id: process.env.DESCOPE_CLIENT_ID,
+                            client_secret: process.env.DESCOPE_ACCESS_KEY,
                             grant_type: "refresh_token",
                             refresh_token: token.refresh_token,
                         }),

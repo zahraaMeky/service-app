@@ -1,9 +1,21 @@
 import NextAuth from "next-auth/next";
-import { NextAuthOptions, Profile as NextAuthProfile, Account, User } from "next-auth";
+import { NextAuthOptions, Profile as NextAuthProfile, Account, User, JWT } from "next-auth";
 
 // Extend the Profile type to include 'picture'
 interface Profile extends NextAuthProfile {
   picture?: string;
+}
+
+// Extend the JWT type to include our custom properties
+interface CustomJWT extends JWT {
+  access_token?: string;
+  expires_at?: number;
+  refresh_token?: string;
+  profile?: {
+    name?: string;
+    email?: string;
+    image?: string;
+  };
 }
 
 const authOptions: NextAuthOptions = {
@@ -44,46 +56,50 @@ const authOptions: NextAuthOptions = {
             email: typedProfile?.email,
             image: typedProfile?.picture,
           },
-        };
-      } else if (Date.now() < token.expires_at * 1000) {
-        return token;
+        } as CustomJWT;
       } else {
-        try {
-          const response = await fetch("https://api.descope.com/oauth2/v1/token", {
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams({
-              client_id: process.env.DESCOPE_CLIENT_ID,
-              client_secret: process.env.DESCOPE_ACCESS_KEY,
-              grant_type: "refresh_token",
-              refresh_token: token.refresh_token,
-            }),
-            method: "POST",
-          });
+        const typedToken = token as CustomJWT; // Type assertion for token
+        if (Date.now() < (typedToken.expires_at || 0) * 1000) {
+          return typedToken;
+        } else {
+          try {
+            const response = await fetch("https://api.descope.com/oauth2/v1/token", {
+              headers: { "Content-Type": "application/x-www-form-urlencoded" },
+              body: new URLSearchParams({
+                client_id: process.env.DESCOPE_CLIENT_ID,
+                client_secret: process.env.DESCOPE_ACCESS_KEY,
+                grant_type: "refresh_token",
+                refresh_token: typedToken.refresh_token || "",
+              }),
+              method: "POST",
+            });
 
-          const tokens = await response.json();
+            const tokens = await response.json();
 
-          if (!response.ok) throw tokens;
+            if (!response.ok) throw tokens;
 
-          return {
-            ...token,
-            access_token: tokens.access_token,
-            expires_at: Math.floor(Date.now() / 1000 + tokens.expires_in),
-            refresh_token: tokens.refresh_token ?? token.refresh_token,
-          };
-        } catch (error) {
-          console.error("Error refreshing access token", error);
-          return { ...token, error: "RefreshAccessTokenError" };
+            return {
+              ...typedToken,
+              access_token: tokens.access_token,
+              expires_at: Math.floor(Date.now() / 1000 + tokens.expires_in),
+              refresh_token: tokens.refresh_token ?? typedToken.refresh_token,
+            };
+          } catch (error) {
+            console.error("Error refreshing access token", error);
+            return { ...typedToken, error: "RefreshAccessTokenError" };
+          }
         }
       }
     },
 
     async session({ session, token }) {
-      if (token.profile) {
-        session.user = token.profile;
+      const typedToken = token as CustomJWT; // Type assertion for token
+      if (typedToken.profile) {
+        session.user = typedToken.profile;
       }
 
-      session.error = token.error;
-      session.accessToken = token.access_token;
+      session.error = typedToken.error;
+      session.accessToken = typedToken.access_token;
       return session;
     },
   },

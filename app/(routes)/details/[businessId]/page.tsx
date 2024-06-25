@@ -1,4 +1,3 @@
-"use client"
 import { useEffect, useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import GlobalApi from "@/app/api/GlobalApi";
@@ -16,10 +15,13 @@ interface Business {
     id: string;
     name: string;
     description: string;
-    image: { url: string }[]; // Adjusted type
+    image: { url: string }[];
     address: string;
     email: string;
     contactPerson: string;
+    category: {
+        name: string; // Ensure category is included
+    };
     // Add other fields as necessary
 }
 

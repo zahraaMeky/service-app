@@ -30,7 +30,7 @@ export function CarouselDefault() {
           className="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
           data-twe-carousel-item
         >
-          <img src="/Slider2.png" className="block w-full h-[350px] object-cover" alt="Camera" />
+          <img src="/Slider23.png" className="block w-full h-[350px] object-cover" alt="Camera" />
         </div>
       </div>
     </div>

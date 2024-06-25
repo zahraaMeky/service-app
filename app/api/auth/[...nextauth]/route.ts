@@ -1,5 +1,8 @@
 import NextAuth from "next-auth/next";
-import { NextAuthOptions, Profile as NextAuthProfile, Account, User, JWT } from "next-auth";
+import { NextAuthOptions, Profile as NextAuthProfile, Account, User } from "next-auth";
+
+// Import JWT type directly from next-auth/next
+import { JWT } from "next-auth/next";
 
 // Extend the Profile type to include 'picture'
 interface Profile extends NextAuthProfile {

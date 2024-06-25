@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from "react";
-import { signIn, useSession } from "next-auth/react"
+import { signIn, useSession } from "next-auth/react";
 import GlobalApi from "@/app/api/GlobalApi";
 import BusinessInfo from "@/components/BusinessInfo";
 import BusinessDescription from "@/components/BusinessDescription";
@@ -13,10 +13,13 @@ interface BusinessDetailProps {
 }
 
 interface Business {
-    // Define the structure of your business details here
     id: string;
     name: string;
     description: string;
+    image: string; // Add missing field
+    address: string; // Add missing field
+    email: string; // Add missing field
+    contactPerson: string; // Add missing field
     // Add other fields as necessary
 }
 

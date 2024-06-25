@@ -23,7 +23,11 @@ const CategorySideBar = () => {
 
     useEffect(() => {
         console.log(params.category, typeof (params.category));
-        setSelectedCategory(params.category);
+        if (Array.isArray(params.category)) {
+            setSelectedCategory(params.category[0]); // Handle the array case by selecting the first element
+        } else {
+            setSelectedCategory(params.category); // Handle the string case
+        }
     }, [params]);
 
     /**
@@ -41,7 +45,7 @@ const CategorySideBar = () => {
             <div>
                 {categoryList.map((category, index) => (
                     <Link href={'/search/' + category.name} key={index}
-                        className={`flex gap-2 p-3 border rounded-lg mb-3 md:mr-10 cursor-pointer hover:bg-purple-50 hover:shadow-md items-center hover:text-purple-400 hover:border-purple-700 ${selectedCategory === category.name.toString() && 'border-purple-700 text-purple-700 shadow-md bg-purple-50'}`}>
+                        className={`flex gap-2 p-3 border rounded-lg mb-3 md:mr-10 cursor-pointer hover:bg-purple-50 hover:shadow-md items-center hover:text-purple-400 hover:border-purple-700 ${selectedCategory === category.name && 'border-purple-700 text-purple-700 shadow-md bg-purple-50'}`}>
                         <Image
                             src={category.image.url}
                             alt='icon'

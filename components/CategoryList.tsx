@@ -4,6 +4,13 @@ import GlobalApi from "../app/api/GlobalApi";
 import Image from 'next/image';
 import Link from 'next/link';
 
+// Define the Category interface
+interface Category {
+    name: string;
+    image: { url: string };
+    // Add other fields as necessary
+}
+
 const CategoryList = () => {
     const [categoryList, setCategoryList] = useState<Category[]>([]);
 

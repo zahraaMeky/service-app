@@ -1,5 +1,5 @@
 import NextAuth from "next-auth/next";
-import { NextAuthOptions, Profile as NextAuthProfile, Account } from "next-auth";
+import { NextAuthOptions, Profile as NextAuthProfile, Account, User } from "next-auth";
 
 // Extend the Profile type to include 'picture'
 interface Profile extends NextAuthProfile {
@@ -18,13 +18,13 @@ const authOptions: NextAuthOptions = {
       clientId: process.env.DESCOPE_CLIENT_ID,
       clientSecret: "<Descope Access Key>",
       checks: ["pkce", "state"],
-      profile(profile) {
+      profile(profile): User {
         const typedProfile = profile as Profile; // Type assertion for profile
         return {
-          id: typedProfile.sub,
-          name: typedProfile.name,
-          email: typedProfile.email,
-          image: typedProfile.picture,
+          id: typedProfile.sub || "", // Ensure id is a string
+          name: typedProfile.name || "", // Ensure name is a string
+          email: typedProfile.email || "", // Ensure email is a string
+          image: typedProfile.picture || "", // Ensure image is a string
         };
       },
     },

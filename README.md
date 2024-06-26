@@ -11,7 +11,7 @@
 
   <h3 align="center">🏠 Home Service App</h3>
 
-   <div align="center">
+   <div align="left">
        Welcome to the Home Service Application! During my journey to learn Next.js, I built this full-stack application to connect homeowners with local service providers for various home maintenance and improvement needs. Built using modern web technologies, it ensures a seamless and user-friendly experience for both homeowners and service providers.
 </div>
 <div>

@@ -13,32 +13,32 @@
 
    <div align="left">
        Welcome to the Home Service Application! During my journey to learn Next.js, I built this full-stack application to connect homeowners with local service providers for various home maintenance and improvement needs. Built using modern web technologies, it ensures a seamless and user-friendly experience for both homeowners and service providers.
-</div>><br/>><br/>
+</div><br/><br/>
 <div>
-  ✨ Features
+  ✨ Features><br/>
   - **🔐 User Authentication:** Secure login and registration using Google login via Descope.><br/>
   - **🔒 Protected Routes:** Pages cannot be accessed without logging in.><br/>
   - **🔍 Service Listings:** Browse and filter for local service providers across various categories.><br/>
   - **📅 Booking System:** Easy scheduling and management of service appointments.><br/>
   - **⏳ Loading Animation:** Displayed while fetching data from the Hygraph API.><br/>
   - **📋 Booking Management:** Users can book appointments and access their booking page. Appointments that are already taken will be disabled.
-</div>><br/>><br/>
+</div><br/><br/>
 <div>
-  ## 🛠️ Technologies Used
-- **Next.js:** A React framework for server-side rendering and generating static websites (https://nextjs.org/).
-- **React.js:** A JavaScript library for building user interfaces (https://reactjs.org/).
-- **Hygraph (formerly GraphCMS):** A headless CMS for managing content with a GraphQL API (https://hygraph.com/).
-- **Tailwind CSS:** A utility-first CSS framework for rapid UI development (https://tailwindcss.com/).
+  ## 🛠️ Technologies Used><br/>
+- **Next.js:** A React framework for server-side rendering and generating static websites (https://nextjs.org/).><br/>
+- **React.js:** A JavaScript library for building user interfaces (https://reactjs.org/).><br/>
+- **Hygraph (formerly GraphCMS):** A headless CMS for managing content with a GraphQL API (https://hygraph.com/).><br/>
+- **Tailwind CSS:** A utility-first CSS framework for rapid UI development (https://tailwindcss.com/).><br/>
 - **Descope:** Authentication and user management platform (https://descope.com/).
-</div>
+</div><br/><br/>
 <div>
-  ## 🚀 Getting Started
+  ## 🚀 Getting Started><br/>><br/>
 
-Follow these steps to get the application up and running on your local machine.
+Follow these steps to get the application up and running on your local machine.><br/>
 
-### 📋 Prerequisites
+### 📋 Prerequisites><br/>
 
-- Node.js
+- Node.js>
 - npm or yarn
 
 ### ⚙️ Installation

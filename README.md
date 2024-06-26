@@ -9,20 +9,20 @@
     <img src="https://img.shields.io/badge/-TypeScript-black?style=for-the-badge&logoColor=white&logo=typescript&color=3178C6" alt="typescript" />
   </div>
 
-  <h3 align="center">🏠 Home Service App</h3>
+  <h3 align="center">🏠 Home Service App</h3><br/>
 
    <div align="left">
        Welcome to the Home Service Application! During my journey to learn Next.js, I built this full-stack application to connect homeowners with local service providers for various home maintenance and improvement needs. Built using modern web technologies, it ensures a seamless and user-friendly experience for both homeowners and service providers.
-</div>
+</div>><br/>><br/>
 <div>
   ✨ Features
-  - **🔐 User Authentication:** Secure login and registration using Google login via Descope.
-  - **🔒 Protected Routes:** Pages cannot be accessed without logging in.
-  - **🔍 Service Listings:** Browse and filter for local service providers across various categories.
-  - **📅 Booking System:** Easy scheduling and management of service appointments.
-  - **⏳ Loading Animation:** Displayed while fetching data from the Hygraph API.
+  - **🔐 User Authentication:** Secure login and registration using Google login via Descope.><br/>
+  - **🔒 Protected Routes:** Pages cannot be accessed without logging in.><br/>
+  - **🔍 Service Listings:** Browse and filter for local service providers across various categories.><br/>
+  - **📅 Booking System:** Easy scheduling and management of service appointments.><br/>
+  - **⏳ Loading Animation:** Displayed while fetching data from the Hygraph API.><br/>
   - **📋 Booking Management:** Users can book appointments and access their booking page. Appointments that are already taken will be disabled.
-</div>
+</div>><br/>><br/>
 <div>
   ## 🛠️ Technologies Used
 - **Next.js:** A React framework for server-side rendering and generating static websites (https://nextjs.org/).

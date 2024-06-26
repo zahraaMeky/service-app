@@ -72,8 +72,42 @@ Follow these steps to get the application up and running on your local machine.<
     yarn dev
     ```
     Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-</div>
+</div><br/><br/>
+<div>
+  ## 🗂️ Project Structure <br/>
 
+- `app/`: Main application pages and layouts.<br/>
+- `api/`: Backend API routes for Hygraph.<br/>
+- `api/auth/`: Authentication-related API routes for Descope.<br/>
+- `components/`: Reusable React components.<br/>
+- `constants/`: Application-wide constants.<br/>
+- `globals.css/`: Global styles and Tailwind CSS configuration.<br/>
+- `lib/`: Utility functions.<br/>
+- `public/`: Static files and assets.<br/>
+
+## 🔒 Protected Routes<br/><br/>
+
+The application uses Descope for authentication. Certain routes are protected and require users to be logged in. If a user is not authenticated, they will be redirected to the login page.<br/><br/>
+
+## 🔄 Fetching Data<br/>
+
+Data is fetched from the Hygraph API. While data is being fetched, a loading animation is displayed to enhance user experience.<br/><br/>
+
+## 📅 Booking System<br/>
+
+Users can book appointments with service providers. The booking system ensures that slots that are already taken are disabled to prevent double bookings. Users can also view and manage their bookings on their booking page.
+
+</div><br/><br/>
+<div>
+  ## 📧 Contact<br/>
+
+For any inquiries, please reach out to [eng.alzahraa.meky@gmail.com](mailto:eng.alzahraa.meky@gmail.com).<br/>
+or WhatsApp at +96899495057.
+
+---
+
+Visit the live application at [nextjsservice-app.netlify.app](https://nextjsservice-app.netlify.app/)
+</div>
 
 
 

@@ -2,7 +2,7 @@
   <br />
       <img src="https://github.com/zahraaMeky/service-app/assets/123356306/e59f32d5-4335-40ce-adaa-6f9802a09ce9" alt="Project Banner">
   <br />
-</div>  <br />  <br />
+</div>  <br />  
   <div align="center">
     <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
     <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
@@ -27,7 +27,7 @@
   ## 🛠️ Technologies Used<br/>
 - **Next.js:** A React framework for server-side rendering and generating static websites (https://nextjs.org/).<br/>
 - **React.js:** A JavaScript library for building user interfaces (https://reactjs.org/).<br/>
-- **Hygraph (formerly GraphCMS):** A headless CMS for managing content with a GraphQL API (https://hygraph.com/).<br/>
+- **Hygraph (GraphCMS):** a flexible localization API that you can use to publish content (https://hygraph.com/).<br/>
 - **Tailwind CSS:** A utility-first CSS framework for rapid UI development (https://tailwindcss.com/).<br/>
 - **Descope:** Authentication and user management platform (https://descope.com/).
 </div><br/><br/>

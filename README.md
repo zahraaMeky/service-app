@@ -3,7 +3,7 @@
       <img src="https://github.com/zahraaMeky/service-app/assets/123356306/e59f32d5-4335-40ce-adaa-6f9802a09ce9" alt="Project Banner">
   <br />
 </div>
-  <div>
+  <div align="center">
     <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
     <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
     <img src="https://img.shields.io/badge/-TypeScript-black?style=for-the-badge&logoColor=white&logo=typescript&color=3178C6" alt="typescript" />
@@ -15,28 +15,28 @@
        Welcome to the Home Service Application! During my journey to learn Next.js, I built this full-stack application to connect homeowners with local service providers for various home maintenance and improvement needs. Built using modern web technologies, it ensures a seamless and user-friendly experience for both homeowners and service providers.
 </div><br/><br/>
 <div>
-  ✨ Features><br/>
-  - **🔐 User Authentication:** Secure login and registration using Google login via Descope.><br/>
+  ✨ Features<br/>
+  - **🔐 User Authentication:** Secure login and registration using Google login via Descope.<br/>
   - **🔒 Protected Routes:** Pages cannot be accessed without logging in.><br/>
-  - **🔍 Service Listings:** Browse and filter for local service providers across various categories.><br/>
-  - **📅 Booking System:** Easy scheduling and management of service appointments.><br/>
-  - **⏳ Loading Animation:** Displayed while fetching data from the Hygraph API.><br/>
+  - **🔍 Service Listings:** Browse and filter for local service providers across various categories.<br/>
+  - **📅 Booking System:** Easy scheduling and management of service appointments.<br/>
+  - **⏳ Loading Animation:** Displayed while fetching data from the Hygraph API.<br/>
   - **📋 Booking Management:** Users can book appointments and access their booking page. Appointments that are already taken will be disabled.
 </div><br/><br/>
 <div>
-  ## 🛠️ Technologies Used><br/>
-- **Next.js:** A React framework for server-side rendering and generating static websites (https://nextjs.org/).><br/>
-- **React.js:** A JavaScript library for building user interfaces (https://reactjs.org/).><br/>
-- **Hygraph (formerly GraphCMS):** A headless CMS for managing content with a GraphQL API (https://hygraph.com/).><br/>
-- **Tailwind CSS:** A utility-first CSS framework for rapid UI development (https://tailwindcss.com/).><br/>
+  ## 🛠️ Technologies Used<br/>
+- **Next.js:** A React framework for server-side rendering and generating static websites (https://nextjs.org/).<br/>
+- **React.js:** A JavaScript library for building user interfaces (https://reactjs.org/).<br/>
+- **Hygraph (formerly GraphCMS):** A headless CMS for managing content with a GraphQL API (https://hygraph.com/).<br/>
+- **Tailwind CSS:** A utility-first CSS framework for rapid UI development (https://tailwindcss.com/).<br/>
 - **Descope:** Authentication and user management platform (https://descope.com/).
 </div><br/><br/>
 <div>
-  ## 🚀 Getting Started><br/>><br/>
+  ## 🚀 Getting Started<br/><br/>
 
-Follow these steps to get the application up and running on your local machine.><br/>
+Follow these steps to get the application up and running on your local machine.<br/>
 
-### 📋 Prerequisites><br/>
+### 📋 Prerequisites<br/>
 
 - Node.js>
 - npm or yarn

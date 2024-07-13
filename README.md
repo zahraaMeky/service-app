@@ -1,6 +1,6 @@
 <div align="center">
   <br />
-      <img src="https://github.com/zahraaMeky/service-app/assets/123356306/e59f32d5-4335-40ce-adaa-6f9802a09ce9" alt="Project Banner">
+      <img src="https://github.com/zahraaMeky/service-app/assets/123356306/e59f32d5-4335-40ce-adaa-6f9802a09ce9" alt="Banner">
   <br />
 </div>  <br />  
   <div align="center">
